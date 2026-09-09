@@ -3,17 +3,17 @@
 <style>
 :root{
   --bg:#E9E6DF; --panel:#F4F2EC; --ink:#22251F; --ink-2:#5C6157; --line:#CFCBC0;
-  --accent:#2F5D50; --accent-ink:#F4F2EC; --piece:#F1EFEA; --logo:#1B1C1B; --floor:#D6D2C8; --grid:#BDB8AC;
+  --accent:#2F5D50; --accent-ink:#F4F2EC; --piece:#F1EFEA; --logo:#0E0F0E; --floor:#D6D2C8; --grid:#BDB8AC;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
     --bg:#1C1E1D; --panel:#242726; --ink:#ECE9E1; --ink-2:#A3A79E; --line:#3A3E3B;
-    --accent:#7FB8A4; --accent-ink:#152420; --piece:#DCD9D2; --logo:#141514; --floor:#2A2D2C; --grid:#3E4240;
+    --accent:#7FB8A4; --accent-ink:#152420; --piece:#DCD9D2; --logo:#0A0B0A; --floor:#2A2D2C; --grid:#3E4240;
   }
 }
 :root[data-theme="dark"]{
   --bg:#1C1E1D; --panel:#242726; --ink:#ECE9E1; --ink-2:#A3A79E; --line:#3A3E3B;
-  --accent:#7FB8A4; --accent-ink:#152420; --piece:#DCD9D2; --logo:#141514; --floor:#2A2D2C; --grid:#3E4240;
+  --accent:#7FB8A4; --accent-ink:#152420; --piece:#DCD9D2; --logo:#0A0B0A; --floor:#2A2D2C; --grid:#3E4240;
 }
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:"Instrument Sans",system-ui,-apple-system,sans-serif;font-size:15px;line-height:1.45;height:100vh;display:grid;grid-template-columns:320px 1fr;grid-template-rows:100%;overflow:hidden}
@@ -111,11 +111,11 @@ const grid=new THREE.GridHelper(600,60); grid.position.y=0.02; scene.add(grid);
 
 // PLA negro mate: algo de brillo para que las aristas se lean
 const pieceMat=new THREE.MeshStandardMaterial({roughness:0.75,metalness:0.0});
-const logoMat=new THREE.MeshStandardMaterial({roughness:0.5,metalness:0.05});
+const logoMat=new THREE.MeshStandardMaterial({roughness:0.9,metalness:0.0});
 const piece=new THREE.Mesh(MODELS.cuerpo.geometry,pieceMat); piece.castShadow=true; piece.receiveShadow=true; scene.add(piece);
 const logoMesh=new THREE.Mesh(MODELS.logo.geometry,logoMat); logoMesh.castShadow=true; scene.add(logoMesh);
 // etiqueta de muestra encastrada en el rebaje de C
-const card=new THREE.Mesh(new THREE.PlaneGeometry(117.6,23.1), new THREE.MeshStandardMaterial({color:0xF2EFE7,roughness:0.9,side:THREE.DoubleSide}));
+const card=new THREE.Mesh(new THREE.PlaneGeometry(117.6,23.1), new THREE.MeshStandardMaterial({color:0xD9D4C7,roughness:0.95,side:THREE.DoubleSide}));
 card.visible=false; card.receiveShadow=true; scene.add(card);
 
 function applyTheme(){
